@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  scroll-behavior: smooth;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #F6F6F5;
+    scroll-behavior: smooth;
+}
+input,select{
+  outline: none;
+}
+.batch_heart{
+  background: tomato;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: absolute;
+  right: -25%;
+  top: -10%;
+  cursor: pointer;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* Or higher, as needed */
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: top center;
+  transition: opacity 1s ease;
+  opacity: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* This targets the specific slide, you might need to adjust the selector based on your actual DOM structure */
+.slide, .slide::after, .slide::before, .slider, .slider::after, .slider::before {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+.slide.active {
+  opacity: 1;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 50px;
+  left: 100%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.slider-indicator {
+  border: none;
+  margin: 0 5px;
+  width: 10px;
+  height: 10px;
+  background-color: #bd4e4e;
+  background-size: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.slider-indicator.active {
+  opacity: 1;
+}
+
+.slider-content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3; /* Ensure the content is above the slides /
+  text-align: center; / Center the text content */
+  }
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

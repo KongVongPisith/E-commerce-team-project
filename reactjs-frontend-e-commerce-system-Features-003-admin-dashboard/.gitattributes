@@ -1,0 +1,10 @@
+*.extension filter=lfs diff=lfs merge=lfs -text
+*./node_modules filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.largefileextension filter=lfs diff=lfs merge=lfs -text
+*.ext filter=lfs diff=lfs merge=lfs -text
+474ddb1be38bedeaeb3020fa45f462e395aae11d filter=lfs diff=lfs merge=lfs -text
+7cf6659033fdaebe28ec5b2573180d5156259e75 filter=lfs diff=lfs merge=lfs -text
+3fbf0e9eb16c29d9acc4a27a4e99792ae0695498 filter=lfs diff=lfs merge=lfs -text
+*./node_modules/.cache/default-development/0.pack filter=lfs diff=lfs merge=lfs -text
+*./node_modules/.cache/default-development/9.pack filter=lfs diff=lfs merge=lfs -text

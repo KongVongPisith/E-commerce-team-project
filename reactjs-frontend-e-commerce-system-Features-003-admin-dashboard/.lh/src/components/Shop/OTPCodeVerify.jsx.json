@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Shop/OTPCodeVerify.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1703685137464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1703747717138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,20 @@\n // OTPCodeVerify.js\n-import axios from \"axios\";\n-import React from \"react\";\n-import { toast } from \"react-toastify\";\n-import { server } from \"../../server\";\n-const OTPCodeVerify = ({ email, otp, setOtp, handleSubmit }) => {\n+import axios from 'axios';\n+import React from 'react';\n+import { toast } from 'react-toastify';\n+import { server } from '../../server';\n+\n+const OTPCodeVerify = ({ email, otp, setOtp, handleSubmit, specificVerifyParam }) => {\n   const handleOtpVerification = async () => {\n     try {\n-      const response = await axios.post(`${server}/verify-otp`, { email, otp });\n+      // Add your specific verification logic here\n+      const response = await axios.post(`${server}/verify-otp`, { email, otp, specificVerifyParam });\n+\n+      // You can perform additional actions with the response if needed\n+\n       toast.success(response.data.message);\n-      handleSubmit();\n+      handleSubmit(); // Call the parent component's submit function\n     } catch (error) {\n       toast.error(error.response.data.message);\n     }\n   };\n"
+                },
+                {
+                    "date": 1703747838172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,18 +3,14 @@\n import React from 'react';\n import { toast } from 'react-toastify';\n import { server } from '../../server';\n \n-const OTPCodeVerify = ({ email, otp, setOtp, handleSubmit, specificVerifyParam }) => {\n+const OTPCodeVerify = ({ email, otp, setOtp, handleSubmit }) => {\n   const handleOtpVerification = async () => {\n     try {\n-      // Add your specific verification logic here\n-      const response = await axios.post(`${server}/verify-otp`, { email, otp, specificVerifyParam });\n-\n-      // You can perform additional actions with the response if needed\n-\n+      const response = await axios.post(`${server}/verify-otp`, { email, otp });\n       toast.success(response.data.message);\n-      handleSubmit(); // Call the parent component's submit function\n+      handleSubmit();\n     } catch (error) {\n       toast.error(error.response.data.message);\n     }\n   };\n"
+                }
+            ],
+            "date": 1703685137464,
+            "name": "Commit-0",
+            "content": "// OTPCodeVerify.js\nimport React from \"react\";\nimport axios from \"axios\";\nimport { toast } from \"react-toastify\";\nimport { server } from \"../../server\"; \nconst OTPCodeVerify = ({ email, otp, setOtp, handleSubmit }) => {\n  const handleOtpVerification = async () => {\n    try {\n      const response = await axios.post(`${server}/verify-otp`, { email, otp });\n      toast.success(response.data.message);\n      handleSubmit();\n    } catch (error) {\n      toast.error(error.response.data.message);\n    }\n  };\n\n  return (\n    <div>\n      <h2>Step 2: Verify OTP</h2>\n      <label>OTP:</label>\n      <input type=\"text\" value={otp} onChange={(e) => setOtp(e.target.value)} />\n      <button onClick={handleOtpVerification}>Verify OTP</button>\n    </div>\n  );\n};\n\nexport default OTPCodeVerify;\n"
+        }
+    ]
+}

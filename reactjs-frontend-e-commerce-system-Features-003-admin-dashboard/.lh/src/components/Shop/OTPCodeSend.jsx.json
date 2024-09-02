@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Shop/OTPCodeSend.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1703685046974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1703685081027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n // OTPCodeSend.js\n import axios from \"axios\";\n import { toast } from \"react-toastify\";\n+import { server } from \"../../server\";\n \n const OTPCodeSend = async ({ email }) => {\n   try {\n     return await axios.post(`${server}/send-otp`, { email });\n"
+                },
+                {
+                    "date": 1703747657719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,17 @@\n // OTPCodeSend.js\n-import axios from \"axios\";\n-import { toast } from \"react-toastify\";\n-import { server } from \"../../server\";\n+import axios from 'axios';\n+import { toast } from 'react-toastify';\n+import { server } from '../../server';\n \n-const OTPCodeSend = async ({ email }) => {\n+const OTPCodeSend = async ({ email, specificParam }) => {\n   try {\n-    return await axios.post(`${server}/send-otp`, { email });\n+    // Add your specific logic here\n+    const response = await axios.post(`${server}/send-otp`, { email, specificParam });\n+\n+    // You can perform additional actions with the response if needed\n+\n+    return response.data;\n   } catch (error) {\n     toast.error(error.response.data.message);\n     throw error;\n   }\n"
+                }
+            ],
+            "date": 1703685046974,
+            "name": "Commit-0",
+            "content": "// OTPCodeSend.js\nimport React from \"react\";\nimport axios from \"axios\";\nimport { toast } from \"react-toastify\";\n\nconst OTPCodeSend = async ({ email }) => {\n  try {\n    return await axios.post(`${server}/send-otp`, { email });\n  } catch (error) {\n    toast.error(error.response.data.message);\n    throw error;\n  }\n};\n\nexport default OTPCodeSend;\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Checkout/CheckoutSteps.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1703834537654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1703834537654,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport styles from '../../styles/styles';\n\nconst CheckoutSteps = ({active}) => {\n    console.log(active);\n  return (\n    <div className='w-full flex justify-center'>\n        <div className=\"w-[90%] 800px:w-[50%] flex items-center flex-wrap\">\n               <div className={`${styles.noramlFlex}`}>\n                <div className={`${styles.cart_button}`}>\n                       <span className={`${styles.cart_button_text}`}>1.Shipping</span>\n                </div>\n                <div className={`${\n                    active > 1 ? \"w-[30px] 800px:w-[70px] h-[4px] !bg-[#30825d]\"\n                    : \"w-[30px] 800px:w-[70px] h-[4px] !bg-[#FDE1E6]\"\n                }`} />\n               </div>\n\n               <div className={`${styles.noramlFlex}`}>\n                <div className={`${active > 1 ? `${styles.cart_button}` : `${styles.cart_button} !bg-[#FDE1E6]`}`}>\n                    <span className={`${active > 1 ? `${styles.cart_button_text}` : `${styles.cart_button_text} !text-[#64d452]`}`}>\n                        2.Payment\n                    </span>\n                </div>\n               </div>\n\n               <div className={`${styles.noramlFlex}`}>\n               <div className={`${\n                    active > 3 ? \"w-[30px] 800px:w-[70px] h-[4px] !bg-[#f63b60]\"\n                    : \"w-[30px] 800px:w-[70px] h-[4px] !bg-[#FDE1E6]\"\n                }`} />\n                <div className={`${active > 2 ? `${styles.cart_button}` : `${styles.cart_button} !bg-[#FDE1E6]`}`}>\n                    <span className={`${active > 2 ? `${styles.cart_button_text}` : `${styles.cart_button_text} !text-[#f63b60]`}`}>\n                        3.Success\n                    </span>\n                </div>\n               </div>\n        </div>\n    </div>\n  )\n}\n\nexport default CheckoutSteps"
+        }
+    ]
+}

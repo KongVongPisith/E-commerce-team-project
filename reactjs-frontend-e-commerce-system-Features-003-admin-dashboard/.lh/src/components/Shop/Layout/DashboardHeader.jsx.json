@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Shop/Layout/DashboardHeader.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705412808069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705412808069,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { AiOutlineGift } from \"react-icons/ai\";\nimport { BiMessageSquareDetail } from \"react-icons/bi\";\nimport { FiPackage, FiShoppingBag } from \"react-icons/fi\";\nimport { MdOutlineLocalOffer } from \"react-icons/md\";\nimport { useSelector } from \"react-redux\";\nimport { Link } from \"react-router-dom\";\nimport { backend_url } from \"../../../server\";\n\nconst DashboardHeader = () => {\n    const { seller } = useSelector((state) => state.seller);\n    return (\n        <div className=\"w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4\">\n            <div>\n                <Link to=\"/dashboard\">\n                    <img\n                        src=\"https://shopo.quomodothemes.website/assets/images/logo.svg\"\n                        alt=\"\"\n                    />\n                </Link>\n            </div>\n            <div className=\"flex items-center\">\n                <div className=\"flex items-center mr-4\">\n                    <Link to=\"/dashboard/cupouns\" className=\"800px:block hidden\">\n                        <AiOutlineGift\n                            color=\"#555\"\n                            size={30}\n                            className=\"mx-5 cursor-pointer\"\n                        />\n                    </Link>\n                    <Link to=\"/dashboard-events\" className=\"800px:block hidden\">\n                        <MdOutlineLocalOffer\n                            color=\"#555\"\n                            size={30}\n                            className=\"mx-5 cursor-pointer\"\n                        />\n                    </Link>\n                    <Link to=\"/dashboard-products\" className=\"800px:block hidden\">\n                        <FiShoppingBag\n                            color=\"#555\"\n                            size={30}\n                            className=\"mx-5 cursor-pointer\"\n                        />\n                    </Link>\n                    <Link to=\"/dashboard-orders\" className=\"800px:block hidden\">\n                        <FiPackage color=\"#555\" size={30} className=\"mx-5 cursor-pointer\" />\n                    </Link>\n                    <Link to=\"/dashboard-messages\" className=\"800px:block hidden\">\n                        <BiMessageSquareDetail\n                            color=\"#555\"\n                            size={30}\n                            className=\"mx-5 cursor-pointer\"\n                        />\n                    </Link>\n                    <Link to={`/shop/${seller._id}`}>\n                        <img\n                            src={`${backend_url}${seller.avatar}`}\n                            alt=\"\"\n                            className=\"w-[50px] h-[50px] rounded-full object-cover\"\n                        />\n                    </Link>\n                </div>\n            </div>\n        </div>\n    );\n};\n\nexport default DashboardHeader;"
+        }
+    ]
+}

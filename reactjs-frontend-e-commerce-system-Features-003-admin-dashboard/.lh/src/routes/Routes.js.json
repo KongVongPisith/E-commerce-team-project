@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/routes/Routes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1703683266350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1703683548672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,13 @@\n import ShopLoginPage from \"../pages/ShopLoginPage\";\n import SignupPage from \"../pages/SignupPage\";\n import TrackOrderPage from \"../pages/TrackOrderPage\";\n import UserInbox from \"../pages/UserInbox.jsx\";\n+import OTPCodePage from \"../pages/OTPCodePage.jsx\";\n \n \n export {\n     ActivationPage, BestSellingPage, CheckoutPage, EventsPage,\n     FAQPage, HomePage, LoginPage, OrderDetailsPage, OrderSuccessPage, PaymentPage, ProductDetailsPage, ProductsPage, ProfilePage, ResetPassword, SellerActivationPage, ShopCreatePage, ShopLoginPage, SignupPage, TrackOrderPage,\n-    UserInbox\n+    UserInbox, OTPCodePage,\n };\n \n"
+                },
+                {
+                    "date": 1703686654103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n import ShopLoginPage from \"../pages/ShopLoginPage\";\n import SignupPage from \"../pages/SignupPage\";\n import TrackOrderPage from \"../pages/TrackOrderPage\";\n import UserInbox from \"../pages/UserInbox.jsx\";\n+import OTPCodePage from \"../pages/OTPCodePage.jsx\";\n \n \n export {\n     ActivationPage, BestSellingPage, CheckoutPage, EventsPage,\n"
+                }
+            ],
+            "date": 1703683266350,
+            "name": "Commit-0",
+            "content": "import OTPVerify from \"../components/OTP/OTPVerify.jsx\";\nimport ActivationPage from \"../pages/ActivationPage\";\nimport BestSellingPage from \"../pages/BestSellingPage\";\nimport CheckoutPage from \"../pages/CheckoutPage\";\nimport EventsPage from \"../pages/EventsPage\";\nimport FAQPage from \"../pages/FAQPage\";\nimport ResetPassword from \"../pages/ForgotPassword.jsx\";\nimport HomePage from \"../pages/HomePage\";\nimport LoginPage from \"../pages/Login\";\nimport OrderDetailsPage from \"../pages/OrderDetailsPage\";\nimport OrderSuccessPage from \"../pages/OrderSuccessPage\";\nimport PaymentPage from \"../pages/PaymentPage\";\nimport ProductDetailsPage from \"../pages/ProductDetailsPage\";\nimport ProductsPage from \"../pages/ProductsPage\";\nimport ProfilePage from \"../pages/ProfilePage\";\nimport SellerActivationPage from \"../pages/SellerActivationPage\";\nimport ShopCreatePage from \"../pages/ShopCreate\";\nimport ShopLoginPage from \"../pages/ShopLoginPage\";\nimport SignupPage from \"../pages/SignupPage\";\nimport TrackOrderPage from \"../pages/TrackOrderPage\";\nimport UserInbox from \"../pages/UserInbox.jsx\";\n\n\nexport {\n    ActivationPage, BestSellingPage, CheckoutPage, EventsPage,\n    FAQPage, HomePage, LoginPage, OrderDetailsPage, OrderSuccessPage, PaymentPage, ProductDetailsPage, ProductsPage, ProfilePage, ResetPassword, SellerActivationPage, ShopCreatePage, ShopLoginPage, SignupPage, TrackOrderPage,\n    UserInbox\n};\n\n"
+        }
+    ]
+}

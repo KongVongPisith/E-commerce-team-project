@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  scroll-behavior: smooth;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #F6F6F5;
+    scroll-behavior: smooth;
+}
+input,select{
+  outline: none;
+}
+.batch_heart{
+  background: tomato;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: absolute;
+  right: -25%;
+  top: -10%;
+  cursor: pointer;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 2; /* Or higher, as needed */
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: top center;
+  transition: opacity 1s ease;
+  opacity: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* This targets the specific slide, you might need to adjust the selector based on your actual DOM structure */
+.slide, .slide::after, .slide::before, .slider, .slider::after, .slider::before {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+.slide.active {
+  opacity: 1;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 50px;
+  left: 100%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.slider-indicator {
+  border: none;
+  margin: 0 5px;
+  width: 10px;
+  height: 10px;
+  background-color: #bd4e4e;
+  background-size: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.slider-indicator.active {
+  opacity: 1;
+}
+
+.slider-content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3; /* Ensure the content is above the slides /
+  text-align: center; / Center the text content */
+  }
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .statusDelivered {
+    @apply text-statusDelivered font-bold;
+  }
+
+  .statusProcessing {
+    @apply text-statusProcessing font-bold;
+  }
+
+  .statusRefund {
+    @apply text-statusRefund font-bold;
+  }
+
+}
+
+.sidebar {
+  width: 250px;
+  background: #f35921; /* Your desired sidebar background color */
+  height: 100vh;
+  /* Other styles... */
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 0; /* Reset any border-radius */
+  text-decoration: none;
+  color: white; /* Default text color */
+  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: #fff;
+  color: black; /* Text color on hover */
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px 0 0 10px; /* Rounded borders on the left */
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  /* If you want the icon color to change as well, add the transition property here */
+  transition: color 0.3s;
+}
+
+.sidebar-link:hover .sidebar-icon,
+.sidebar-link.active .sidebar-icon {
+  color: black; /* Icon color on hover */
+}
+
+.sidebar-text {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Active state pseudo-elements */
+.sidebar-link.active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px; /* Half of the pseudo-element size */
+  transform: translateY(-50%) rotate(45deg);
+  width: 20px; /* Size of the pseudo-element */
+  height: 20px;
+  background: #fff; /* Match the background color of the active tab */
+  border-radius: 0 20px 0 0; /* Rounded corner on the top-right */
+}
+
+/* Admin Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50; /* Adjust to your color theme */
+  height: 100vh;
+  padding-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: #ffffff;
+  color: #2c3e50;
+  border-radius: 0 30px 30px 0; /* Curve on the right side */
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-icon {
+  font-size: 30px; /* Size of the icons */
+  margin-right: 10px;
+}
+
+.sidebar-text {
+  font-weight: bold;
+  display: none; /* Hide text on smaller screens, show on larger screens */
+}
+
+/* You can add a media query to handle the responsiveness */
+@media (min-width: 800px) {
+  .sidebar-text {
+    display: block;
+  }
+}
+
+/* Active state pseudo-element */
+.sidebar-link.active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px; /* Half the size of the pseudo-element */
+  transform: translateY(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff; /* Match the active link color */
+  border-radius: 0 5px 0 50px; /* Curve only the top-right corner */
+}

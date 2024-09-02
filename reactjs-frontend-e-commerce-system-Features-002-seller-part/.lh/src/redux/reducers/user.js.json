@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/redux/reducers/user.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705453782664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705453782664,
+            "name": "Commit-0",
+            "content": "import { createReducer } from \"@reduxjs/toolkit\";\n\nconst initialState = {\n  isAuthenticated: false,\n};\n\nexport const userReducer = createReducer(initialState, {\n  LoadUserRequest: (state) => {\n    state.loading = true;\n    // state.loading meaning: if loading is true, then the user is not authenticated\n  },\n  LoadUserSuccess: (state, action) => {\n    state.isAuthenticated = true;\n    state.loading = false;\n    state.user = action.payload;\n  },\n  LoadUserFail: (state, action) => {\n    state.loading = false;\n    state.error = action.payload;\n    state.isAuthenticated = false;\n  },\n\n  // update user information\n  updateUserInfoRequest: (state) => {\n    state.loading = true;\n  },\n  updateUserInfoSuccess: (state, action) => {\n    state.loading = false;\n    state.user = action.payload;\n  },\n  updateUserInfoFailed: (state, action) => {\n    state.loading = false;\n    state.error = action.payload;\n  },\n\n  // Update User address\n  updateUserAddressRequest: (state) => {\n    state.addressloading = true;\n  },\n  updateUserAddressSuccess: (state, action) => {\n    state.addressloading = false;\n    state.successMessage = action.payload.successMessage;\n    state.user = action.payload.user;\n  },\n  updateUserAddressFailed: (state, action) => {\n    state.addressloading = false;\n    state.error = action.payload;\n  },\n\n  // delete user address\n  deleteUserAddressRequest: (state) => {\n    state.addressloading = true;\n  },\n  deleteUserAddressSuccess: (state, action) => {\n    state.addressloading = false;\n    state.successMessage = action.payload.successMessage;\n    state.user = action.payload.user;\n  },\n  deleteUserAddressFailed: (state, action) => {\n    state.addressloading = false;\n    state.error = action.payload;\n  },\n  // get all users --- admin\n  getAllUsersRequest: (state) => {\n    state.usersLoading = true;\n  },\n  getAllUsersSuccess: (state, action) => {\n    state.usersLoading = false;\n    state.users = action.payload;\n  },\n  getAllUsersFailed: (state, action) => {\n    state.usersLoading = false;\n    state.error = action.payload;\n  },\n\n  clearErrors: (state) => {\n    state.error = null;\n  },\n});"
+        }
+    ]
+}

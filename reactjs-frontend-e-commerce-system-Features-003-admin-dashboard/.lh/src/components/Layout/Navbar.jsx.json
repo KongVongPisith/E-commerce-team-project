@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Layout/Navbar.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705459535827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705459535827,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { Link } from 'react-router-dom'\nimport { navItems } from '../../static/data'\nimport styles from '../../styles/styles'\n\nconst Navbar = ({active}) => {\n  return (\n    <div className={`block 800px:${styles.noramlFlex}`}>\n         {\n            navItems && navItems.map((i,index) => (\n                <div className=\"flex\">\n                    <Link to={i.url}\n                    className={`${active === index + 1 ? \"text-[#6deda4]\" : \"text-black 800px:text-[#fff]\"} pb-[30px] 800px:pb-0 font-[500] px-6 cursor-pointer}`}\n                    >\n                    {i.title}\n                    </Link>\n                </div>\n            ))\n         }\n    </div>\n  )\n}\n\nexport default Navbar"
+        }
+    ]
+}

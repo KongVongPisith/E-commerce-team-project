@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/OTP/OTPVerify.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1703682075507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1703748023989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-// OTPVerify.jsx\n import axios from \"axios\";\n import React, { useState } from \"react\";\n import { useDispatch } from \"react-redux\";\n import { useHistory } from \"react-router-dom\";\n"
+                }
+            ],
+            "date": 1703682075507,
+            "name": "Commit-0",
+            "content": "// OTPVerify.jsx\nimport React, { useState } from \"react\";\nimport { useDispatch } from \"react-redux\";\nimport { useHistory } from \"react-router-dom\";\nimport axios from \"axios\";\nimport { server } from \"../../server\";\nimport { login } from \"../../actions/userActions\";\n\nconst OTPVerify = ({ email }) => {\n  const [otp, setOtp] = useState(\"\");\n  const [error, setError] = useState(\"\");\n  const dispatch = useDispatch();\n  const history = useHistory();\n\n  const handleVerify = () => {\n    // Perform OTP verification logic\n    axios\n      .post(`${server}/verify-otp`, { email, otp })\n      .then((res) => {\n        // Assuming the backend returns a token upon successful OTP verification\n        const token = res.data.token;\n\n        // Dispatch the login action\n        dispatch(login({ email, token }));\n\n        // Redirect to the user's profile or dashboard\n        history.push(\"/profile\");\n      })\n      .catch((error) => {\n        // Handle OTP verification failure\n        setError(\"Invalid OTP. Please try again.\");\n        console.error(error);\n      });\n  };\n\n  return (\n    <div>\n      <h2>OTP Verification</h2>\n      <p>Please enter the OTP sent to your email.</p>\n      <label>OTP:</label>\n      <input\n        type=\"text\"\n        value={otp}\n        onChange={(e) => setOtp(e.target.value)}\n      />\n      {error && <p style={{ color: \"red\" }}>{error}</p>}\n      <button onClick={handleVerify}>Verify OTP</button>\n    </div>\n  );\n};\n\nexport default OTPVerify;\n"
+        }
+    ]
+}

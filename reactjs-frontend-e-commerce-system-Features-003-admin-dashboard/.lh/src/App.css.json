@@ -1,0 +1,66 @@
+{
+    "sourceFile": "src/App.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1705318342260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705318426942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,10 +59,10 @@\n }\n \n .slider-controls {\n   position: absolute;\n-  bottom: 20px;\n-  left: 50%;\n+  bottom: 50px;\n+  left: 100%;\n   transform: translateX(-50%);\n   display: flex;\n }\n \n"
+                },
+                {
+                    "date": 1705318477833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,8 +71,9 @@\n   margin: 0 5px;\n   width: 10px;\n   height: 10px;\n   background-color: #fff;\n+  background-size: cover;\n   border-radius: 50%;\n   cursor: pointer;\n   opacity: 0.5;\n   transition: opacity 0.3s ease;\n"
+                },
+                {
+                    "date": 1705319228235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,12 +37,18 @@\n   -webkit-appearance: none;\n   margin: 0;\n }\n .slider {\n+  height: 50vh;\n   position: relative;\n   overflow: hidden;\n }\n \n+.slide img {\n+  width: 100%;\n+  height: auto;\n+}\n+\n .slide {\n   position: absolute;\n   top: 0;\n   left: 0;\n@@ -51,8 +57,10 @@\n   background-size: cover;\n   background-position: center;\n   transition: opacity 1s ease;\n   opacity: 0;\n+  background-size: contain;\n+  background-repeat: no-repeat;\n }\n \n .slide.active {\n   opacity: 1;\n"
+                },
+                {
+                    "date": 1705319265777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   left: 0;\n   width: 100%;\n   height: 100%;\n   background-size: cover;\n-  background-position: center;\n+  background-position: top center;\n   transition: opacity 1s ease;\n   opacity: 0;\n   background-size: contain;\n   background-repeat: no-repeat;\n"
+                },
+                {
+                    "date": 1705319394403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,11 +37,12 @@\n   -webkit-appearance: none;\n   margin: 0;\n }\n .slider {\n-  height: 50vh;\n+  height: 100vh;\n   position: relative;\n   overflow: hidden;\n+  z-index: 1; /* Or higher, as needed */\n }\n \n .slide img {\n   width: 100%;\n"
+                },
+                {
+                    "date": 1705455150838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,114 @@\n+@tailwind base;\n+@tailwind components;\n+@tailwind utilities;\n+\n+/* fonts */\n+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n+\n+*{\n+  scroll-behavior: smooth;\n+}\n+body {\n+  font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n+    Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n+    background: #F6F6F5;\n+    scroll-behavior: smooth;\n+}\n+input,select{\n+  outline: none;\n+}\n+.batch_heart{\n+  background: tomato;\n+  width: 15px;\n+  height: 15px;\n+  display: flex;\n+  align-items: center;\n+  justify-content: center;\n+  border-radius: 100%;\n+  position: absolute;\n+  right: -24%;\n+  top: -9%;\n+  cursor: pointer;\n+}\n+/* Chrome, Safari, Edge, Opera */\n+input::-webkit-outer-spin-button,\n+input::-webkit-inner-spin-button {\n+  -webkit-appearance: none;\n+  margin: 0;\n+}\n+.slider {\n+  height: 100vh;\n+  position: relative;\n+  overflow: hidden;\n+  z-index: 1; /* Or higher, as needed */\n+}\n+\n+.slide img {\n+  width: 100%;\n+  height: auto;\n+}\n+\n+.slide {\n+  position: absolute;\n+  top: 0;\n+  left: 0;\n+  width: 100%;\n+  height: 100%;\n+  background-size: cover;\n+  background-position: top center;\n+  transition: opacity 1s ease;\n+  opacity: 0;\n+  background-size: contain;\n+  background-repeat: no-repeat;\n+}\n+\n+/* This targets the specific slide, you might need to adjust the selector based on your actual DOM structure */\n+.slide, .slide::after, .slide::before, .slider, .slider::after, .slider::before {\n+  border: none !important;\n+  outline: none !important;\n+  box-shadow: none !important;\n+}\n+\n+\n+.slide.active {\n+  opacity: 1;\n+}\n+\n+.slider-controls {\n+  position: absolute;\n+  bottom: 50px;\n+  left: 100%;\n+  transform: translateX(-50%);\n+  display: flex;\n+}\n+\n+.slider-indicator {\n+  border: none;\n+  margin: 0 5px;\n+  width: 10px;\n+  height: 10px;\n+  background-color: #fff;\n+  background-size: cover;\n+  border-radius: 50%;\n+  cursor: pointer;\n+  opacity: 0.5;\n+  transition: opacity 0.3s ease;\n+}\n+\n+.slider-indicator.active {\n+  opacity: 1;\n+}\n+\n+.slider-content {\n+  position: absolute;\n+  top: 50%;\n+  left: 50%;\n+  transform: translate(-50%, -50%);\n+  z-index: 2; /* Ensure the content is above the slides /\n+  text-align: center; / Center the text content */\n+  }\n+/* Firefox */\n+input[type=number] {\n+  -moz-appearance: textfield;\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1705455368044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -104,117 +104,11 @@\n   position: absolute;\n   top: 50%;\n   left: 50%;\n   transform: translate(-50%, -50%);\n-  z-index: 2; /* Ensure the content is above the slides /\n+  z-index: 3; /* Ensure the content is above the slides /\n   text-align: center; / Center the text content */\n   }\n /* Firefox */\n input[type=number] {\n   -moz-appearance: textfield;\n-}\n-@tailwind base;\n-@tailwind components;\n-@tailwind utilities;\n-\n-/* fonts */\n-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n-\n-*{\n-  scroll-behavior: smooth;\n-}\n-body {\n-  font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n-    Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n-    background: #F6F6F5;\n-    scroll-behavior: smooth;\n-}\n-input,select{\n-  outline: none;\n-}\n-.batch_heart{\n-  background: tomato;\n-  width: 15px;\n-  height: 15px;\n-  display: flex;\n-  align-items: center;\n-  justify-content: center;\n-  border-radius: 100%;\n-  position: absolute;\n-  right: -24%;\n-  top: -9%;\n-  cursor: pointer;\n-}\n-/* Chrome, Safari, Edge, Opera */\n-input::-webkit-outer-spin-button,\n-input::-webkit-inner-spin-button {\n-  -webkit-appearance: none;\n-  margin: 0;\n-}\n-.slider {\n-  height: 100vh;\n-  position: relative;\n-  overflow: hidden;\n-  z-index: 1; /* Or higher, as needed */\n-}\n-\n-.slide img {\n-  width: 100%;\n-  height: auto;\n-}\n-\n-.slide {\n-  position: absolute;\n-  top: 0;\n-  left: 0;\n-  width: 100%;\n-  height: 100%;\n-  background-size: cover;\n-  background-position: top center;\n-  transition: opacity 1s ease;\n-  opacity: 0;\n-  background-size: contain;\n-  background-repeat: no-repeat;\n-}\n-\n-.slide.active {\n-  opacity: 1;\n-}\n-\n-.slider-controls {\n-  position: absolute;\n-  bottom: 50px;\n-  left: 100%;\n-  transform: translateX(-50%);\n-  display: flex;\n-}\n-\n-.slider-indicator {\n-  border: none;\n-  margin: 0 5px;\n-  width: 10px;\n-  height: 10px;\n-  background-color: #fff;\n-  background-size: cover;\n-  border-radius: 50%;\n-  cursor: pointer;\n-  opacity: 0.5;\n-  transition: opacity 0.3s ease;\n-}\n-\n-.slider-indicator.active {\n-  opacity: 1;\n-}\n-\n-.slider-content {\n-  position: absolute;\n-  top: 50%;\n-  left: 50%;\n-  transform: translate(-50%, -50%);\n-  z-index: 2; /* Ensure the content is above the slides /\n-  text-align: center; / Center the text content */\n-  }\n-/* Firefox */\n-input[type=number] {\n-  -moz-appearance: textfield;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1705455396828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,9 @@\n   border: none;\n   margin: 0 5px;\n   width: 10px;\n   height: 10px;\n-  background-color: #fff;\n+  background-color: #bd4e4e;\n   background-size: cover;\n   border-radius: 50%;\n   cursor: pointer;\n   opacity: 0.5;\n"
+                },
+                {
+                    "date": 1705455417111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,10 @@\n   align-items: center;\n   justify-content: center;\n   border-radius: 100%;\n   position: absolute;\n-  right: -24%;\n-  top: -9%;\n+  right: -25%;\n+  top: -10%;\n   cursor: pointer;\n }\n /* Chrome, Safari, Edge, Opera */\n input::-webkit-outer-spin-button,\n"
+                },
+                {
+                    "date": 1705455447206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n   opacity: 1;\n }\n \n .slider-content {\n-  position: absolute;\n+  position: static;\n   top: 50%;\n   left: 50%;\n   transform: translate(-50%, -50%);\n   z-index: 3; /* Ensure the content is above the slides /\n"
+                },
+                {
+                    "date": 1705455456096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n   opacity: 1;\n }\n \n .slider-content {\n-  position: static;\n+  position: relative;\n   top: 50%;\n   left: 50%;\n   transform: translate(-50%, -50%);\n   z-index: 3; /* Ensure the content is above the slides /\n"
+                },
+                {
+                    "date": 1705455510202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n .slider {\n   height: 100vh;\n   position: relative;\n   overflow: hidden;\n-  z-index: 1; /* Or higher, as needed */\n+  z-index: 2; /* Or higher, as needed */\n }\n \n .slide img {\n   width: 100%;\n"
+                }
+            ],
+            "date": 1705318342260,
+            "name": "Commit-0",
+            "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n/* fonts */\n@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n*{\n  scroll-behavior: smooth;\n}\nbody {\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n    background: #F6F6F5;\n    scroll-behavior: smooth;\n}\ninput,select{\n  outline: none;\n}\n.batch_heart{\n  background: tomato;\n  width: 15px;\n  height: 15px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 100%;\n  position: absolute;\n  right: -24%;\n  top: -9%;\n  cursor: pointer;\n}\n/* Chrome, Safari, Edge, Opera */\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.slider {\n  position: relative;\n  overflow: hidden;\n}\n\n.slide {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-size: cover;\n  background-position: center;\n  transition: opacity 1s ease;\n  opacity: 0;\n}\n\n.slide.active {\n  opacity: 1;\n}\n\n.slider-controls {\n  position: absolute;\n  bottom: 20px;\n  left: 50%;\n  transform: translateX(-50%);\n  display: flex;\n}\n\n.slider-indicator {\n  border: none;\n  margin: 0 5px;\n  width: 10px;\n  height: 10px;\n  background-color: #fff;\n  border-radius: 50%;\n  cursor: pointer;\n  opacity: 0.5;\n  transition: opacity 0.3s ease;\n}\n\n.slider-indicator.active {\n  opacity: 1;\n}\n\n.slider-content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 2; /* Ensure the content is above the slides /\n  text-align: center; / Center the text content */\n  }\n/* Firefox */\ninput[type=number] {\n  -moz-appearance: textfield;\n}"
+        }
+    ]
+}

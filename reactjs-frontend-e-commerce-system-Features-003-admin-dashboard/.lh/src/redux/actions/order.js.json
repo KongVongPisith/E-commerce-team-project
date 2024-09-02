@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/redux/actions/order.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1703832247265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1703832247265,
+            "name": "Commit-0",
+            "content": "import axios from \"axios\";\nimport { server } from \"../../server\";\n\n// get all orders of user\nexport const getAllOrdersOfUser = (userId) => async (dispatch) => {\n  try {\n    dispatch({\n      type: \"getAllOrdersUserRequest\",\n    });\n\n    const { data } = await axios.get(\n      `${server}/order/get-all-orders/${userId}`\n    );\n\n    dispatch({\n      type: \"getAllOrdersUserSuccess\",\n      payload: data.orders,\n    });\n  } catch (error) {\n    dispatch({\n      type: \"getAllOrdersUserFailed\",\n      payload: error.response.data.message,\n    });\n  }\n};\n\n// get all orders of seller\nexport const getAllOrdersOfShop = (shopId) => async (dispatch) => {\n  try {\n    dispatch({\n      type: \"getAllOrdersShopRequest\",\n    });\n\n    const { data } = await axios.get(\n      `${server}/order/get-seller-all-orders/${shopId}`\n    );\n\n    dispatch({\n      type: \"getAllOrdersShopSuccess\",\n      payload: data.orders,\n    });\n  } catch (error) {\n    dispatch({\n      type: \"getAllOrdersShopFailed\",\n      payload: error.response.data.message,\n    });\n  }\n};\n\n// get all orders of Admin\nexport const getAllOrdersOfAdmin = () => async (dispatch) => {\n  try {\n    dispatch({\n      type: \"adminAllOrdersRequest\",\n    });\n\n    const { data } = await axios.get(`${server}/order/admin-all-orders`, {\n      withCredentials: true,\n    });\n\n    dispatch({\n      type: \"adminAllOrdersSuccess\",\n      payload: data.orders,\n    });\n  } catch (error) {\n    dispatch({\n      type: \"adminAllOrdersFailed\",\n      payload: error.response.data.message,\n    });\n  }\n};\n"
+        }
+    ]
+}
